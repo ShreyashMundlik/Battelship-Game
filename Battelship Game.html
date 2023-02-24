@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Battelship Game</title>
+  </head>
+  <body>
+    <h2>Battelship Game</h2>
+    <button onclick="startGame()">start game</button>
+  </body>
+  <script>
+    function startGame() {
+      console.log("game started...!");
+
+      const arr = [0, 1, 1, 0, 1];
+      let guessCount = 0;
+      let hitCount = 0;
+      
+      while (hitCount != 3) {
+        //to ask the choice from user!
+        const guess = Number(prompt("enter a number(1-5)"));
+
+        //to check no is valid or not!
+
+        if (guess < 0 || guess > 5) {
+          alert("Enter valid choice!");
+          continue;
+        }
+        guessCount++;
+
+        if (arr[guess] == 1) {
+          alert("You have hit the battelship!congratulations!");
+          hitCount++;
+          arr[guess]++;
+        } else if (arr[guess] == 2) {
+          alert("you have already hit this battelship!");
+          guessCount++;
+        } else {
+          alert("you missed the battelship!");
+          guessCount++;
+        }
+      }
+      document.write("total guesses:" + guessCount, "<br>");
+      document.write("Total hits:" + hitCount);
+    }
+  </script>
+</html>
